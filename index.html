@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinguaVoice AI — Speak. Translate. Connect.</title>
+  <meta name="description" content="AI-powered language translation with voice input and natural speech output across 20+ languages." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Animated gradient blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <!-- Header -->
+  <header class="container header">
+    <a href="#" class="logo">
+      <span class="logo-icon">🌐</span>
+      <span class="logo-text">Lingua<span class="grad-text">Voice</span> AI</span>
+    </a>
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#translator">Translator</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      <a href="#translator" class="btn btn-gradient">Launch</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="container hero">
+    <span class="badge">✨ AI-powered real-time translation</span>
+    <h1 class="hero-title">
+      <span class="grad-text">Speak.</span>
+      <span class="grad-text">Translate.</span>
+      <span class="grad-text">Connect.</span>
+    </h1>
+    <p class="hero-sub">
+      LinguaVoice AI breaks language barriers with intelligent translation,
+      natural speech recognition, and lifelike voice playback — all in one
+      beautiful, modern workspace.
+    </p>
+    <div class="hero-cta">
+      <a href="#translator" class="btn btn-gradient btn-lg">Start Translating →</a>
+      <a href="#features" class="btn btn-outline btn-lg">See Features</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="container section" id="features">
+    <h2 class="section-title">Everything you need to <span class="grad-text">go global</span></h2>
+    <p class="section-sub">Thoughtful features, modern design, and AI that actually understands context.</p>
+
+    <div class="grid">
+      <article class="card glass">
+        <div class="card-icon">🎤</div>
+        <h3>Voice Input</h3>
+        <p>Speak naturally — built-in speech recognition turns words into text instantly.</p>
+      </article>
+      <article class="card glass">
+        <div class="card-icon">🔊</div>
+        <h3>Natural Voice Output</h3>
+        <p>Hear translations read aloud with native-sounding text-to-speech.</p>
+      </article>
+      <article class="card glass">
+        <div class="card-icon">✨</div>
+        <h3>AI-Powered Accuracy</h3>
+        <p>Context-aware translations that capture nuance, tone and meaning.</p>
+      </article>
+      <article class="card glass">
+        <div class="card-icon">🌍</div>
+        <h3>20+ Languages</h3>
+        <p>From English to Japanese — translate across the world's major languages.</p>
+      </article>
+      <article class="card glass">
+        <div class="card-icon">⚡</div>
+        <h3>Lightning Fast</h3>
+        <p>Streaming-grade responses so conversation never has to wait.</p>
+      </article>
+      <article class="card glass">
+        <div class="card-icon">🛡️</div>
+        <h3>Private by Design</h3>
+        <p>Your text is processed securely and never stored long-term.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="container section" id="about">
+    <div class="about glass">
+      <h2 class="section-title">About <span class="grad-text">LinguaVoice AI</span></h2>
+      <p>
+        Built for travelers, learners, creators and global teams, LinguaVoice AI
+        combines cutting-edge language models with browser-native voice
+        technology to deliver a seamless multilingual experience. No installs,
+        no friction — just open, speak, and connect with anyone, anywhere.
+      </p>
+    </div>
+  </section>
+
+  <!-- Translator -->
+  <section class="container section" id="translator">
+    <h2 class="section-title"><span class="grad-text">Translate</span> anything, instantly</h2>
+    <p class="section-sub">Type or speak in any supported language and hear the translation read back to you.</p>
+
+    <div class="translator glass">
+      <!-- Language bar -->
+      <div class="lang-bar">
+        <label class="lang-select">
+          <span>From</span>
+          <select id="sourceLang"></select>
+        </label>
+        <button id="swapBtn" class="icon-btn swap-btn" aria-label="Swap languages">⇄</button>
+        <label class="lang-select">
+          <span>To</span>
+          <select id="targetLang"></select>
+        </label>
+      </div>
+
+      <div class="panels">
+        <!-- Input -->
+        <div class="panel">
+          <div class="panel-head">
+            <span class="panel-label" id="sourceLabel">Auto Detect</span>
+            <button id="micBtn" class="icon-btn" aria-label="Voice input">🎤</button>
+          </div>
+          <textarea id="inputText" maxlength="5000" placeholder="Type or speak something to translate..."></textarea>
+          <div class="panel-foot">
+            <span id="listenStatus">&nbsp;</span>
+            <span><span id="charCount">0</span> / 5000</span>
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="panel">
+          <div class="panel-head">
+            <span class="panel-label" id="targetLabel">Spanish</span>
+            <div class="panel-head-actions">
+              <button id="speakBtn" class="icon-btn" aria-label="Play translation">🔈</button>
+              <button id="copyBtn" class="icon-btn" aria-label="Copy translation">📋</button>
+            </div>
+          </div>
+          <div id="outputText" class="output">
+            <span class="placeholder">Translation will appear here.</span>
+          </div>
+          <div class="panel-foot">
+            <span>&nbsp;</span>
+            <span id="outCount">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <label class="checkbox">
+          <input type="checkbox" id="autoPlay" />
+          <span>Auto-play translated voice</span>
+        </label>
+        <button id="translateBtn" class="btn btn-gradient btn-lg">✨ Translate</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="container footer">
+    <div class="logo">
+      <span class="logo-icon">🌐</span>
+      <span class="logo-text">Lingua<span class="grad-text">Voice</span> AI</span>
+    </div>
+    <p>Speak any language.Connect with everyone.powered by LinguaVoice AI · © 2026</p>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
