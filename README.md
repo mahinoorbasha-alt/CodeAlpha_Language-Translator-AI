@@ -110,8 +110,8 @@ Repository Name:
 CodeAlpha_Language-Translator-AI
 
 GitHub Link:
-(Add your repository link here)
 
+https://github.com/mahinoorbasha-alt/CodeAlpha_Language-Translator-AI
 ---
 
 📹 Project Demonstration
